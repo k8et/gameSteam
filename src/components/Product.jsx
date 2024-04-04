@@ -1,47 +1,7 @@
 "use client"
-import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import React from 'react';
 import Loader from "@/components/Loader";
-
-function Product(props) {
-    const [statusBuyRu, setStatusBuyRu] = useState('');
-    const [statusBuyEn, setStatusBuyEn] = useState('');
-    const [profile, setProfile] = useState('');
-    const [language, setLanguage] = useState(getCookie('language') || 'en');
-
-    useEffect(() => {
-        const timer = setInterval(() => {
-            console.log(props.gamename);
-            if (props.gamename === 'Не закрывайте данную страницу') {
-                window.location.reload();
-            } else clearInterval(timer);
-        }, 5000);
-
-        const statusCheckInterval = setInterval(() => {
-            statusConnect(props.unique_code);
-        }, 3000);
-
-        return () => {
-            clearInterval(timer);
-            clearInterval(statusCheckInterval);
-        };
-    }, []);
-
-    function statusConnect(uniquecode) {
-        axios.post("/status?uniquecode=" + uniquecode)
-            .then(response => {
-                const statuses = response.data.split("@");
-                setStatusBuyRu(statuses[0]);
-                setStatusBuyEn(statuses[1]);
-            })
-            .catch(error => console.error(error));
-    }
-
-    function getCookie(name) {
-        const result = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
-        return result ? unescape(result[2]) : null;
-    }
-
+function Product() {
 
     return (
         <div
