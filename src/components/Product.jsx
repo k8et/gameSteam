@@ -1,6 +1,7 @@
 "use client"
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import Loader from "@/components/Loader";
 
 function Product(props) {
     const [statusBuyRu, setStatusBuyRu] = useState('');
@@ -44,11 +45,11 @@ function Product(props) {
 
     return (
         <div
-            className="min-w-[1110px] flex flex-col gap-[45px] min-h-[522px] bg-[#100E1A] p-[45px] rounded-[40px] border border-white/10">
-            <div className="flex w-full gap-5">
+            className="w-full z-50  xl:w-[1110px] flex flex-col gap-[45px] min-h-[522px] bg-[#100E1A] p-[45px] rounded-[40px] border border-white/10">
+            <div className="flex w-full flex-col xl:flex-row gap-5">
                 <div className="w-full flex items-center justify-center rounded-[20px] h-[243px] bg-[#101013]">
-                    <div className="text-white flex flex-col gap-5">
-                        <p className="text-center">loader</p>
+                    <div className="text-white flex items-center flex-col gap-5">
+                        <Loader/>
                         <p className="text-center text-[16px] leading-[16px]">
                             Wait a little while <br/>
                             Something's loading...
@@ -56,16 +57,16 @@ function Product(props) {
                     </div>
                 </div>
                 <div className="text-white w-full flex flex-col ">
-                    <h1 className="pb-[30px] text-[44px]">Not found</h1>
+                    <h1 className="pb-[30px] text-[44px]"> Not found</h1>
                     <p className="border-y border-[#A9ABAD]/30 py-2 w-full text-[16px]">
                         Steam Profile:
-                        <span className="font-[300] text-[#2883FF]">Not found</span>
+                        <span className="font-[300] text-[#2883FF]"> Not found</span>
                     </p>
                     <p className="border-b border-[#A9ABAD]/30 py-2 w-full text-[16px]">Unique Product Code:
-                        <span className="font-[300]">Not found</span>
+                        <span className="font-[300]"> Not found</span>
                     </p>
                     <p className="border-b border-[#A9ABAD]/30 py-2 w-full text-[16px]">Bot Nickname:
-                        <span className="font-[300]">Not found</span>
+                        <span className="font-[300]"> Not found</span>
                     </p>
                 </div>
             </div>
@@ -83,7 +84,7 @@ function Product(props) {
             </div>
             <div>
                 <p className="text-white">Seller Contact Info:</p>
-                <div className="flex gap-[20px]">
+                <div className="flex gap-[20px] flex-col md:flex-row">
                     <p className="text-[#2883FF] flex gap-2.5 items-center">
                         <img className="rounded-full" src="https://botsteam.net/plati-min.png"/>
                         Plati Profile
